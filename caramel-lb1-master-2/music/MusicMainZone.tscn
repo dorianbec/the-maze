@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://music/Overworld_Theme.ogg" type="AudioStream" id=1]
+
+[node name="MusicMainZone" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+

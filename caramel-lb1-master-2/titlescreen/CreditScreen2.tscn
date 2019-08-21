@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://titlescreen/CreditScreen2.gd" type="Script" id=1]
+[ext_resource path="res://HUD/arrow-135-128.png" type="Texture" id=2]
+[ext_resource path="res://fonts/PrStart.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://items/CARAMEL.png" type="Texture" id=4]
+[ext_resource path="res://items/fromscratch.png" type="Texture" id=5]
+[ext_resource path="res://items/Godot.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+extra_spacing_bottom = 10
+font_data = ExtResource( 3 )
+
+[node name="CreditScreen2" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.988235, 0.988235, 0.988235, 1 )
+
+[node name="ReturnButton" type="Button" parent="."]
+margin_left = 0.701324
+margin_top = -0.372795
+margin_right = 106.701
+margin_bottom = 73.6272
+custom_styles/focus = SubResource( 1 )
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ReturnIcon" type="Sprite" parent="ReturnButton"]
+self_modulate = Color( 0.278431, 0.54902, 0.74902, 1 )
+position = Vector2( 45.3633, 36.1761 )
+rotation = -1.5708
+scale = Vector2( 0.350275, 0.340932 )
+texture = ExtResource( 2 )
+
+[node name="mainblock" type="VBoxContainer" parent="."]
+margin_left = 49.0
+margin_top = 40.0
+margin_right = 656.0
+margin_bottom = 364.0
+
+[node name="firstbl" type="VBoxContainer" parent="mainblock"]
+margin_right = 607.0
+margin_bottom = 36.0
+
+[node name="title" type="Label" parent="mainblock/firstbl"]
+margin_right = 607.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.278431, 0.54902, 0.74902, 1 )
+text = "CREDITS"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="mainblock"]
+margin_top = 40.0
+margin_right = 607.0
+margin_bottom = 324.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="caramel" type="Sprite" parent="mainblock/HBoxContainer"]
+position = Vector2( 133.89, 70.8829 )
+scale = Vector2( 0.333504, 0.308314 )
+texture = ExtResource( 4 )
+
+[node name="scratch" type="Sprite" parent="mainblock/HBoxContainer"]
+position = Vector2( 451.646, 78.7588 )
+scale = Vector2( 0.904534, 0.904534 )
+texture = ExtResource( 5 )
+
+[node name="godot" type="Sprite" parent="mainblock/HBoxContainer"]
+position = Vector2( 298.567, 234.128 )
+scale = Vector2( 0.556087, 0.539215 )
+texture = ExtResource( 6 )
+[connection signal="pressed" from="ReturnButton" to="." method="_on_ReturnButton_pressed"]

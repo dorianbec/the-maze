@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://items/baguettev2.gd" type="Script" id=1]
+[ext_resource path="res://items/magicRod1.png" type="Texture" id=2]
+[ext_resource path="res://items/Shadow-PNG-Image-File.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "baguettemove"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("magicRod1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -8 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ombreB:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.028, 0.04 ), Vector2( 0.02, 0.04 ), Vector2( 0.028, 0.04 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ombreB:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.54902 ), Color( 1, 1, 1, 0.352941 ), Color( 1, 1, 1, 0.54902 ) ]
+}
+
+[node name="baguette2" type="Area2D"]
+position = Vector2( -0.487656, 0.975342 )
+z_index = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="magicRod1" type="Sprite" parent="."]
+position = Vector2( 0, -8 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 2 )
+
+[node name="Collisionbag2" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="ombreB" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.352941 )
+position = Vector2( 9.13593, 35.5471 )
+scale = Vector2( 0.02, 0.04 )
+texture = ExtResource( 3 )
+
+[node name="animbag2" type="AnimationPlayer" parent="."]
+autoplay = "baguettemove"
+anims/baguettemove = SubResource( 2 )
+
+[node name="Tweenbag" type="Tween" parent="."]
+[connection signal="body_entered" from="." to="." method="_on_baguette2_body_entered"]
+[connection signal="tween_completed" from="Tweenbag" to="." method="_on_Tweenbag_tween_completed"]

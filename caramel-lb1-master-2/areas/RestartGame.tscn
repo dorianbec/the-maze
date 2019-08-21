@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://items/return.png" type="Texture" id=1]
+[ext_resource path="res://fonts/LuckiestGuy.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=7]
+size = 22
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="RestartGame" type="Sprite"]
+position = Vector2( 469.167, 10 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ButRestart" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -50.0
+margin_top = -50.0
+margin_right = -50.0
+margin_bottom = -50.0
+flat = true
+
+[node name="RESTART" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -48.8947
+margin_top = -50.0
+margin_right = -45.8947
+margin_bottom = -29.0
+custom_fonts/font = SubResource( 7 )
+text = "RESTART"
+align = 1

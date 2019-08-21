@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://music/game_maoudamashii_5_town24.ogg" type="AudioStream" id=1]
+
+[node name="musicMenu" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )

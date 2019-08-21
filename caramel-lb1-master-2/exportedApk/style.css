@@ -1,0 +1,106 @@
+@font-face {
+  font-family: 'PrStart';
+  src: url('PrStart.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Luckiest';
+  src: url('LuckiestGuy.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Renner';
+  src: url('Renner_\ 400\ Book.ttf') format('truetype')
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+h1 {
+  margin: 0.5em auto;
+  font-family: 'Luckiest', serif;
+  font-size: 3.4em;
+  color: rgb(5, 105, 206);
+  text-shadow: 3px 3px 1px rgb(180, 178, 178);
+  text-align: center;
+}
+
+h3 {
+  margin-top: 0;
+  text-decoration: underline; 
+  font-family: 'Renner';
+}
+
+.block {
+  width: 90vw;
+  margin: 1.0em auto 3em auto;
+  font-size: 1.4em;
+  font-family: 'Renner';
+  text-align: justify;
+}
+
+.toto {
+  margin: 0 0.5em;
+  color: orangered;
+}
+
+img {
+  width: 90vw;
+  height: auto;
+  margin: 1em auto;
+}
+
+.btn {
+  width: 70vw;
+  /*height: 8vh;*/
+  margin: 0.6em auto;
+  background: black;
+    border :0;
+    border-radius: 5px;
+  
+}
+
+.btn__text {
+  color: white;
+  font-size: 1.5em;
+  padding: 10px;
+}
+
+.btn__download {
+ 
+padding: 30px 0 30px 0;
+
+}
+
+
+.btn__play {
+  margin-bottom: 5em;
+padding: 30px 0 30px 0;
+
+}
+
+.copyright {
+  margin: 0 auto;
+  font-family: 'Renner';
+  font-size: 0.85em;
+}
+
+@media (min-width: 850px) {
+  img {
+    width: 50vw;
+    height: auto;
+    margin: 1em auto;
+  }
+
+  .block {
+    width: 50vw;
+  }
+
+  .btn {
+    width: 50vw;
+  }
+}

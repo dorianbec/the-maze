@@ -1,0 +1,174 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://scripts/player2.gd" type="Script" id=1]
+[ext_resource path="res://player/PLAYERSPRITE.tscn" type="PackedScene" id=2]
+[ext_resource path="res://HUD/Analog.tscn" type="PackedScene" id=3]
+[ext_resource path="res://HUD/AnalogButton.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "idledown"
+tracks/0/type = "value"
+tracks/0/path = NodePath("PLAYERSPRITE:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idleleft"
+tracks/0/type = "value"
+tracks/0/path = NodePath("PLAYERSPRITE:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idleright"
+tracks/0/type = "value"
+tracks/0/path = NodePath("PLAYERSPRITE:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idleup"
+tracks/0/type = "value"
+tracks/0/path = NodePath("PLAYERSPRITE:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=5]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PLAYERSPRITE:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 12, 4 ]
+}
+
+[sub_resource type="Animation" id=6]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PLAYERSPRITE:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 13, 5 ]
+}
+
+[sub_resource type="Animation" id=7]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PLAYERSPRITE:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 15, 7 ]
+}
+
+[sub_resource type="Animation" id=8]
+tracks/0/type = "value"
+tracks/0/path = NodePath("PLAYERSPRITE:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 6, 14 ]
+}
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 13.81, 15.722 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 14.2695, 15.1696 )
+
+[node name="Player2" type="KinematicBody2D"]
+position = Vector2( 1.72113, 0.318207 )
+scale = Vector2( 1.5, 1.5 )
+script = ExtResource( 1 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+playback_speed = 4.0
+anims/idledown = SubResource( 1 )
+anims/idleleft = SubResource( 2 )
+anims/idleright = SubResource( 3 )
+anims/idleup = SubResource( 4 )
+anims/walkdown = SubResource( 5 )
+anims/walkleft = SubResource( 6 )
+anims/walkright = SubResource( 7 )
+anims/walkup = SubResource( 8 )
+
+[node name="PLAYERSPRITE" parent="." instance=ExtResource( 2 )]
+position = Vector2( -0.974802, -0.109875 )
+z_index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -0.90275, 2.59584 )
+shape = SubResource( 9 )
+
+[node name="Analog" parent="." instance=ExtResource( 3 )]
+
+[node name="AnalogButton" parent="." instance=ExtResource( 4 )]
+
+[node name="hitbox" type="Area2D" parent="."]
+visible = false
+
+[node name="collis2" type="CollisionShape2D" parent="hitbox"]
+visible = false
+position = Vector2( -0.454081, 2.7245 )
+shape = SubResource( 10 )
+
+[node name="BlinkingTimer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+[connection signal="pushA" from="AnalogButton" to="." method="_on_AnalogButton_pushA"]
+[connection signal="timeout" from="BlinkingTimer" to="." method="_on_BlinkingTimer_timeout"]

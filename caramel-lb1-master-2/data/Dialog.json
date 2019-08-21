@@ -1,0 +1,5 @@
+{"id1":{"name":"Mathilda","text1":["Hey, you!","Yes, you!","I'm lost", "Are you going to the magic tower, too ?!", "Can I come with you?"], "choice":["Yes","No"], "text2":["Hum, kay...", "What's your name, again?"] },
+    "id2":{"name":"George", "text":"Me?"},
+    "id3":{"name":"George", "text":"Me?"},
+    "id4":{"name":"The Grand Mage", "text":["CONGRATULATIONS!", "You passed the labyrinth and found the magic items.", "You have now all the requirements to be a mage.", "We need your courage to save this world!", "Come, your story begins now!"]} 
+}

@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://items/etoile.gd" type="Script" id=1]
+[ext_resource path="res://items/starsCustom.png" type="Texture" id=2]
+[ext_resource path="res://items/Shadow-PNG-Image-File.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "animstar"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("etoilepng:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -8 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("colliEtoile:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -8 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ombre:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.0222851, 0.0252744 ), Vector2( 0.017, 0.025 ), Vector2( 0.0222851, 0.0252744 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ombre:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0.352941 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[node name="etoile" type="Area2D"]
+z_index = 2
+script = ExtResource( 1 )
+
+[node name="etoilepng" type="Sprite" parent="."]
+position = Vector2( 0, -8 )
+scale = Vector2( 0.201734, 0.201734 )
+texture = ExtResource( 2 )
+
+[node name="colliEtoile" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -8 )
+shape = SubResource( 1 )
+
+[node name="ombre" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.352941 )
+position = Vector2( -0.192698, 19.4354 )
+scale = Vector2( 0.017, 0.025 )
+texture = ExtResource( 3 )
+
+[node name="animetoile" type="AnimationPlayer" parent="."]
+autoplay = "animstar"
+anims/animstar = SubResource( 2 )
+
+[node name="Tweenetoile" type="Tween" parent="."]
+[connection signal="body_entered" from="." to="." method="_on_etoile_body_entered"]
+[connection signal="tween_completed" from="Tweenetoile" to="." method="_on_Tweenetoile_tween_completed"]

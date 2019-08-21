@@ -1,0 +1,669 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://areas/main.gd" type="Script" id=1]
+[ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://areas/Maze01v2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://areas/Portail.tscn" type="PackedScene" id=4]
+[ext_resource path="res://player/player2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://player/etoileTouch.tscn" type="PackedScene" id=6]
+[ext_resource path="res://items/codexv2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://items/baguettev2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://items/etoile.tscn" type="PackedScene" id=9]
+[ext_resource path="res://player/caramelBoss.tscn" type="PackedScene" id=10]
+[ext_resource path="res://areas/controlSlimes.gd" type="Script" id=11]
+[ext_resource path="res://enemies/Slime.tscn" type="PackedScene" id=12]
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+
+[node name="HUD" parent="." instance=ExtResource( 2 )]
+
+[node name="Maze1v2" parent="." instance=ExtResource( 3 )]
+
+[node name="BackgroundStaticObjects" type="Node2D" parent="."]
+
+[node name="Entree" type="Node2D" parent="BackgroundStaticObjects"]
+
+[node name="PortailA" parent="BackgroundStaticObjects/Entree" instance=ExtResource( 4 )]
+position = Vector2( 2367.38, 655.518 )
+world_scene = "res://areas/ZoneFinale.tscn"
+
+[node name="Player2" parent="." groups=[
+"Players",
+] instance=ExtResource( 5 )]
+position = Vector2( 1550.39, 1859.62 )
+scale = Vector2( 0.7, 0.7 )
+z_index = 1
+
+[node name="etoileTouch" parent="Player2" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 53.5247, -4.65431 )
+
+[node name="Camera2D2" type="Camera2D" parent="Player2"]
+position = Vector2( -1.87671, 0.820801 )
+current = true
+zoom = Vector2( 0.7, 0.7 )
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+smoothing_enabled = true
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
+
+[node name="codexv2" parent="." instance=ExtResource( 7 )]
+position = Vector2( -463.992, 2132.8 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="baguette2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 82.7201, 143.871 )
+
+[node name="etoile" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2860.03, 496.213 )
+
+[node name="etoile6" parent="." instance=ExtResource( 9 )]
+position = Vector2( 3638.26, 1345.97 )
+
+[node name="etoile2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1393.34, 1387.96 )
+
+[node name="etoile3" parent="." instance=ExtResource( 9 )]
+position = Vector2( -132.864, 1368.79 )
+
+[node name="etoile11" parent="." instance=ExtResource( 9 )]
+position = Vector2( 330.366, 2045.09 )
+
+[node name="etoile12" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2213.14, 2614.62 )
+
+[node name="etoile7" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2834.09, 454.866 )
+
+[node name="etoile8" parent="." instance=ExtResource( 9 )]
+position = Vector2( 3646.68, 708.212 )
+
+[node name="etoile9" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4038.89, 282.216 )
+
+[node name="etoile10" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4153.37, 415.457 )
+
+[node name="etoile4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 909.525, 1104.36 )
+
+[node name="etoile5" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1920.51, 443.602 )
+z_index = 4
+
+[node name="caramelBoss" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2483.71, 728.477 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="controlSlimes" type="Node2D" parent="." groups=[
+"Slimes",
+]]
+position = Vector2( -28.9644, 60.5821 )
+scale = Vector2( 0.7, 0.7 )
+script = ExtResource( 11 )
+
+[node name="Slime" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 690.7, 382.678 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime2" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 2871.73, 1107 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime3" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 2370.37, 412.259 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime4" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 1709.67, 545.681 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime5" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 369.346, 2791.36 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime6" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 1211.27, 1104.88 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime7" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 363.045, 2844.92 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime8" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3603.66, 2498.61 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime9" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3898.64, 2804.33 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime38" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 5027.28, 3277.19 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime39" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3173.82, 4730.27 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime57" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3494.17, 4727.19 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime58" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3719.02, 4844.24 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime59" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 2212.79, 4369.88 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime60" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 2508.49, 4111.14 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime61" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3204.89, 3946.78 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime62" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 1561.97, 4771.69 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime75" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 419.208, 4839.45 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime84" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -492.539, 3915.39 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime90" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -486.378, 3496.47 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime91" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -246.121, 3394.83 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime92" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 215.913, 3555 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime93" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 206.672, 3949.27 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime94" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -720.475, 2991.32 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime95" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -720.475, 2991.32 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime96" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -720.475, 2991.32 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime97" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -720.475, 2991.32 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime98" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -701.994, 2202.78 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime99" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -772.839, 2255.14 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime100" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 388.405, 3194.61 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime101" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -775.919, 2421.48 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime102" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -775.919, 2667.89 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime103" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -751.277, 2855.79 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime104" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -609.587, 2227.42 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime105" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -483.298, 2295.19 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime106" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -193.757, 2295.19 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime107" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -85.9491, 2449.2 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime108" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -255.361, 2674.06 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime109" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -30.5051, 3096.05 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime85" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -541.822, 4121.76 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime86" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -42.826, 4817.89 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime87" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -701.994, 4494.47 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime88" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -474.057, 4861.01 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime89" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 332.961, 4392.82 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime76" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 1238.55, 3188.45 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime77" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 1451.08, 3336.3 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime78" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 1247.79, 3508.79 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime79" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 1229.31, 3973.91 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime80" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 2141.05, 3715.17 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime81" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 1672.86, 3702.85 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime82" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 1598.93, 4269.61 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime83" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 1022.93, 4833.29 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime63" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 2107.31, 4768.24 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime64" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 1907.12, 4809.65 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime65" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 2221.21, 4750.98 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime66" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 2483.52, 4750.98 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime67" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 2742.38, 4747.53 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime68" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3197.98, 4008.9 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime69" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3180.73, 3794.91 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime70" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3187.63, 3870.84 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime71" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3191.08, 3698.27 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime72" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 5848.74, 4778.59 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime73" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 4019.44, 4833.81 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime74" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 4885.77, 4782.04 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime49" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 6476.91, 4771.69 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime50" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 6715.07, 4523.18 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime51" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 6815.16, 4136.61 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime52" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 6797.9, 3625.79 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime53" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 4499.2, 4526.63 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime54" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 5465.62, 4813.1 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime55" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 6249.11, 4340.25 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime56" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 5534.65, 4022.71 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime40" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 4419.82, 4395.47 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime41" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 4343.88, 4485.21 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime42" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3553.49, 3342.76 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime43" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3867.58, 3712.07 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime44" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 4188.57, 3467.02 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime45" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 4502.65, 3460.12 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime46" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 5420.75, 3674.11 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime47" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 4913.38, 3667.21 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime48" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 5738.29, 3294.44 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime10" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3842.02, 2612.79 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime11" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3402.78, 2843.84 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime12" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3686.71, 101.058 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime13" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 1171.07, 1486.65 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime14" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 1875.22, 1719.47 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime15" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3022.31, 1674.04 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime16" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 2255.69, 2690.52 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime17" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -196.841, 1835.71 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime18" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( -249.827, 1915.19 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime19" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 2314.36, 2532.08 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime20" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3270.02, 2187.08 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime29" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 5240.12, 1913.22 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime30" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 6049.42, 543.958 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime31" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 5783.74, 343.677 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime32" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 6525.77, 2302.4 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime33" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 6525.77, 1314.86 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime35" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 5707.36, 2602.48 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime36" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 6165.67, 2968.04 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime37" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 6012.9, 1391.24 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime34" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 6252.96, -114.631 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime22" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3630.37, 2098.22 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime21" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 3064.31, 1842.07 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime23" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 4742.67, 706.702 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime24" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 4939.72, 764.239 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime25" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 4858.54, 1099.22 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime26" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 4934.2, 1370.35 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime27" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 4858.54, 1670.64 )
+scale = Vector2( 1.14286, 1.14286 )
+
+[node name="Slime28" parent="controlSlimes" instance=ExtResource( 12 )]
+position = Vector2( 4846.71, 1907.89 )
+scale = Vector2( 1.14286, 1.14286 )
+[connection signal="pushed" from="Player2" to="." method="_on_Player2_pushed"]
+[connection signal="hit" from="codexv2" to="." method="_on_codexv2_hit"]
+[connection signal="hit" from="baguette2" to="." method="_on_baguette2_hit"]
+[connection signal="hit" from="etoile" to="." method="_on_etoile_hit"]
+[connection signal="hit" from="etoile6" to="." method="_on_etoile_hit"]
+[connection signal="hit" from="etoile2" to="." method="_on_etoile2_hit"]
+[connection signal="hit" from="etoile3" to="." method="_on_etoile3_hit"]
+[connection signal="hit" from="etoile11" to="." method="_on_etoile3_hit"]
+[connection signal="hit" from="etoile12" to="." method="_on_etoile3_hit"]
+[connection signal="hit" from="etoile7" to="." method="_on_etoile3_hit"]
+[connection signal="hit" from="etoile8" to="." method="_on_etoile3_hit"]
+[connection signal="hit" from="etoile9" to="." method="_on_etoile3_hit"]
+[connection signal="hit" from="etoile10" to="." method="_on_etoile3_hit"]
+[connection signal="hit" from="etoile4" to="." method="_on_etoile4_hit"]
+[connection signal="hit" from="etoile5" to="." method="_on_etoile5_hit"]
+[connection signal="body_entered" from="caramelBoss" to="." method="_on_caramelBoss_body_entered"]
+[connection signal="body_exited" from="caramelBoss" to="." method="_on_caramelBoss_body_exited"]
+[connection signal="touched" from="controlSlimes/Slime" to="controlSlimes" method="_on_Slime_touched"]
+[connection signal="touched" from="controlSlimes/Slime2" to="controlSlimes" method="_on_Slime2_touched"]
+[connection signal="touched" from="controlSlimes/Slime3" to="controlSlimes" method="_on_Slime3_touched"]
+[connection signal="touched" from="controlSlimes/Slime4" to="controlSlimes" method="_on_Slime4_touched"]
+[connection signal="touched" from="controlSlimes/Slime5" to="controlSlimes" method="_on_Slime5_touched"]
+[connection signal="touched" from="controlSlimes/Slime6" to="controlSlimes" method="_on_Slime6_touched"]
+[connection signal="touched" from="controlSlimes/Slime7" to="controlSlimes" method="_on_Slime7_touched"]
+[connection signal="touched" from="controlSlimes/Slime8" to="controlSlimes" method="_on_Slime8_touched"]
+[connection signal="touched" from="controlSlimes/Slime9" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime38" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime39" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime57" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime58" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime59" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime60" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime61" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime62" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime75" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime84" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime90" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime91" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime92" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime93" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime94" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime95" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime96" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime97" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime98" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime99" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime100" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime101" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime102" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime103" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime104" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime105" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime106" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime107" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime108" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime109" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime85" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime86" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime87" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime88" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime89" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime76" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime77" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime78" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime79" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime80" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime81" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime82" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime83" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime63" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime64" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime65" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime66" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime67" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime68" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime69" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime70" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime71" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime72" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime73" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime74" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime49" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime50" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime51" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime52" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime53" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime54" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime55" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime56" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime40" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime41" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime42" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime43" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime44" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime45" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime46" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime47" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime48" to="controlSlimes" method="_on_Slime9_touched"]
+[connection signal="touched" from="controlSlimes/Slime10" to="controlSlimes" method="_on_Slime10_touched"]
+[connection signal="touched" from="controlSlimes/Slime11" to="controlSlimes" method="_on_Slime11_touched"]
+[connection signal="touched" from="controlSlimes/Slime12" to="controlSlimes" method="_on_Slime12_touched"]
+[connection signal="touched" from="controlSlimes/Slime13" to="controlSlimes" method="_on_Slime13_touched"]
+[connection signal="touched" from="controlSlimes/Slime14" to="controlSlimes" method="_on_Slime14_touched"]
+[connection signal="touched" from="controlSlimes/Slime15" to="controlSlimes" method="_on_Slime15_touched"]
+[connection signal="touched" from="controlSlimes/Slime16" to="controlSlimes" method="_on_Slime16_touched"]
+[connection signal="touched" from="controlSlimes/Slime17" to="controlSlimes" method="_on_Slime17_touched"]
+[connection signal="touched" from="controlSlimes/Slime18" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime19" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime20" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime29" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime30" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime31" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime32" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime33" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime35" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime36" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime37" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime34" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime22" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime21" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime23" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime24" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime25" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime26" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime27" to="controlSlimes" method="_on_Slime18_touched"]
+[connection signal="touched" from="controlSlimes/Slime28" to="controlSlimes" method="_on_Slime18_touched"]

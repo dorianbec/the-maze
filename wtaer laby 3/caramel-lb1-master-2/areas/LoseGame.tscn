@@ -1,0 +1,134 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://areas/LoseGame.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Renner_ 400 Book.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://items/home.png" type="Texture" id=3]
+[ext_resource path="res://fonts/LuckiestGuy.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://items/return.png" type="Texture" id=5]
+[ext_resource path="res://enemies/slimeGreen-mod3.png" type="Texture" id=6]
+[ext_resource path="res://areas/fadeIn.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 23
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+size = 22
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="DynamicFont" id=5]
+size = 22
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="LoseGame" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRed" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.596078, 0, 0, 1 )
+
+[node name="MarginC" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 63.0
+margin_top = 43.0
+margin_right = -70.0
+margin_bottom = -1.0
+
+[node name="loseMessage" type="Label" parent="MarginC"]
+margin_top = 89.0
+margin_right = 571.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 1 )
+text = "Oh no, you lost all your stars!
+They are needed to show your valor
+to the Great Mage!
+Be careful and try to avoid the enemies.
+"
+align = 1
+valign = 1
+
+[node name="BackMenu" type="Sprite" parent="MarginC"]
+position = Vector2( 580, 10 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ButBackMenu" type="Button" parent="MarginC/BackMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -50.0
+margin_top = -50.0
+margin_right = -50.0
+margin_bottom = -50.0
+custom_styles/focus = SubResource( 2 )
+flat = true
+
+[node name="BACK" type="Label" parent="MarginC/BackMenu"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -64.8806
+margin_top = -50.0
+margin_right = -28.8806
+margin_bottom = -29.0
+custom_fonts/font = SubResource( 3 )
+text = "BACK TO MENU"
+
+[node name="RestartGame" type="Sprite" parent="MarginC"]
+position = Vector2( 469.167, 10 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ButRestart" type="Button" parent="MarginC/RestartGame"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -50.0
+margin_top = -50.0
+margin_right = -50.0
+margin_bottom = -50.0
+custom_styles/focus = SubResource( 4 )
+flat = true
+
+[node name="RESTART" type="Label" parent="MarginC/RestartGame"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -48.8947
+margin_top = -50.0
+margin_right = -45.8947
+margin_bottom = -29.0
+custom_fonts/font = SubResource( 5 )
+text = "RESTART"
+align = 1
+
+[node name="slimeGreen-mod3" type="Sprite" parent="MarginC"]
+position = Vector2( 24.2595, 292.448 )
+scale = Vector2( 1.40338, 1.40338 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="slimeGreen-mod4" type="Sprite" parent="MarginC"]
+position = Vector2( 563.888, 295.463 )
+scale = Vector2( 1.40338, 1.40338 )
+texture = ExtResource( 6 )
+
+[node name="fadeIn" parent="." instance=ExtResource( 7 )]
+visible = false
+[connection signal="pressed" from="MarginC/BackMenu/ButBackMenu" to="." method="_on_ButBackMenu_pressed"]
+[connection signal="pressed" from="MarginC/RestartGame/ButRestart" to="." method="_on_ButRestart_pressed"]
+[connection signal="fadeIn_finished" from="fadeIn" to="." method="_on_fadeIn_fadeIn_finished"]

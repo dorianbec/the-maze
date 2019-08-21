@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/Portails.gd" type="Script" id=1]
+[ext_resource path="res://tiles/portal1v2.png" type="Texture" id=2]
+[ext_resource path="res://areas/Portail.tres" type="Animation" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 6.49861
+
+[node name="PortailA" type="Area2D"]
+position = Vector2( -0.440125, 0 )
+rotation = 0.484139
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Position2D" type="Position2D" parent="."]
+rotation = 3.19383
+
+[node name="portail-couche1" type="Sprite" parent="Position2D"]
+position = Vector2( 0.0662079, -0.0662003 )
+rotation = 4.53368
+scale = Vector2( 0.905791, 0.905791 )
+texture = ExtResource( 2 )
+flip_v = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Position2D/portail-couche1"]
+root_node = NodePath("../../..")
+autoplay = "turning"
+playback_speed = 0.2
+anims/turning = ExtResource( 3 )
+
+[node name="portail-couche2" type="Sprite" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

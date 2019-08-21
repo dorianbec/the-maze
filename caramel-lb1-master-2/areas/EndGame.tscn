@@ -1,0 +1,199 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://areas/EndGame.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Renner_ 400 Book.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://items/home.png" type="Texture" id=3]
+[ext_resource path="res://fonts/LuckiestGuy.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://items/return.png" type="Texture" id=5]
+[ext_resource path="res://items/grimoire.png" type="Texture" id=6]
+[ext_resource path="res://titlescreen/magicienv3.png" type="Texture" id=7]
+[ext_resource path="res://areas/fadeIn.tscn" type="PackedScene" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.498039, 0.933333, 0.905882, 1 )
+corner_radius_top_right = 180
+corner_radius_bottom_right = 170
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.188235, 0.611765, 0.729412, 1 )
+corner_radius_top_right = 180
+corner_radius_bottom_right = 180
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.643137, 0.643137, 0.643137, 1 )
+corner_radius_top_left = 180
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.807843, 0.807843, 0.807843, 1 )
+corner_radius_top_left = 180
+
+[sub_resource type="DynamicFont" id=5]
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="DynamicFont" id=7]
+size = 22
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="DynamicFont" id=9]
+size = 22
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="EndGame" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRectFond" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.101961, 0.0156863, 0.25098, 1 )
+
+[node name="BtBonly12" type="Button" parent="."]
+margin_left = -118.266
+margin_top = -38.4133
+margin_right = 351.734
+margin_bottom = 400.587
+custom_styles/focus = SubResource( 10 )
+custom_styles/disabled = SubResource( 1 )
+disabled = true
+
+[node name="BtBGonly" type="Button" parent="."]
+margin_left = -128.605
+margin_top = -37.4153
+margin_right = 345.395
+margin_bottom = 402.585
+custom_styles/focus = SubResource( 11 )
+custom_styles/disabled = SubResource( 2 )
+disabled = true
+
+[node name="BtBGOnly2" type="Button" parent="."]
+margin_left = 400.0
+margin_top = 290.0
+margin_right = 750.0
+margin_bottom = 472.0
+custom_styles/focus = SubResource( 12 )
+custom_styles/disabled = SubResource( 3 )
+disabled = true
+
+[node name="BtBGOnly21" type="Button" parent="."]
+margin_left = 433.393
+margin_top = 296.33
+margin_right = 710.393
+margin_bottom = 453.33
+custom_styles/focus = SubResource( 13 )
+custom_styles/disabled = SubResource( 4 )
+disabled = true
+
+[node name="ContCenter" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 40.0
+margin_right = -54.0
+margin_bottom = -40.0
+
+[node name="Label" type="Label" parent="ContCenter"]
+margin_top = 57.0
+margin_right = 600.0
+margin_bottom = 262.0
+custom_fonts/font = SubResource( 5 )
+text = "Congratulations!
+You passed the labyrinth, 
+go through the ennemies and 
+got the items required to be 
+a mage like me!
+We need brave people like you to 
+save the world.
+Your story only begins! "
+
+[node name="BackMenu" type="Sprite" parent="ContCenter"]
+position = Vector2( 580, 10 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ButBackMenu" type="Button" parent="ContCenter/BackMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -50.0
+margin_top = -50.0
+margin_right = -50.0
+margin_bottom = -50.0
+custom_styles/focus = SubResource( 6 )
+flat = true
+
+[node name="BACK" type="Label" parent="ContCenter/BackMenu"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -64.8806
+margin_top = -50.0
+margin_right = -28.8806
+margin_bottom = -29.0
+custom_fonts/font = SubResource( 7 )
+text = "BACK TO MENU"
+
+[node name="RestartGame" type="Sprite" parent="ContCenter"]
+position = Vector2( 469.167, 10 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ButRestart" type="Button" parent="ContCenter/RestartGame"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -50.0
+margin_top = -50.0
+margin_right = -50.0
+margin_bottom = -50.0
+custom_styles/focus = SubResource( 8 )
+flat = true
+
+[node name="RESTART" type="Label" parent="ContCenter/RestartGame"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -48.8947
+margin_top = -50.0
+margin_right = -45.8947
+margin_bottom = -29.0
+custom_fonts/font = SubResource( 9 )
+text = "RESTART"
+align = 1
+
+[node name="grimoire" type="Sprite" parent="."]
+position = Vector2( 500, 270 )
+rotation = 0.261799
+scale = Vector2( 0.17033, 0.17033 )
+texture = ExtResource( 6 )
+
+[node name="finalBoss" type="Sprite" parent="."]
+position = Vector2( 576.84, 243.875 )
+scale = Vector2( 0.283259, 0.283259 )
+texture = ExtResource( 7 )
+flip_h = true
+
+[node name="fadeIn" parent="." instance=ExtResource( 8 )]
+visible = false
+[connection signal="pressed" from="ContCenter/BackMenu/ButBackMenu" to="." method="_on_ButBackMenu_pressed"]
+[connection signal="pressed" from="ContCenter/RestartGame/ButRestart" to="." method="_on_ButRestart_pressed"]
+[connection signal="fadeIn_finished" from="fadeIn" to="." method="_on_fadeIn_fadeIn_finished"]

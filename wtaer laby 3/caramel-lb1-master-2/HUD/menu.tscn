@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://HUD/menu custom.png" type="Texture" id=1]
+
+
+[node name="menu" type="MarginContainer"]
+margin_right = 90.0
+margin_bottom = 60.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="iconmenu" type="Sprite" parent="."]
+position = Vector2( 46.9306, 28.3083 )
+scale = Vector2( 0.390547, 0.352141 )
+texture = ExtResource( 1 )
+

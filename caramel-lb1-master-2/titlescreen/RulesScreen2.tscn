@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://titlescreen/RulesScreen2.gd" type="Script" id=1]
+[ext_resource path="res://fonts/LuckiestGuy.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/Renner_ 400 Book.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://items/grimoire.png" type="Texture" id=4]
+[ext_resource path="res://items/magicRod1.png" type="Texture" id=5]
+[ext_resource path="res://titlescreen/ReturnButton.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 34
+extra_spacing_bottom = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+extra_spacing_top = 6
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[node name="RulesScreen2" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0235294, 0.65098, 0.298039, 1 )
+
+[node name="MarginC" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 39.0
+margin_top = 42.0
+margin_right = -45.0
+margin_bottom = -51.0
+
+[node name="titlepart1" type="VBoxContainer" parent="MarginC"]
+margin_right = 620.0
+margin_bottom = 307.0
+
+[node name="Label" type="Label" parent="MarginC/titlepart1"]
+margin_right = 620.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0.305882, 0.305882, 0.305882, 0.831373 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 4
+text = "Rules"
+align = 1
+uppercase = true
+
+[node name="text" type="Label" parent="MarginC/titlepart1"]
+margin_top = 49.0
+margin_right = 620.0
+margin_bottom = 190.0
+custom_fonts/font = SubResource( 2 )
+text = "Find the Grimoire and the Magic Wand
+to open the portal.
+Let's go, the Great Mage is waiting!"
+align = 1
+
+[node name="codex" type="Sprite" parent="MarginC/titlepart1"]
+position = Vector2( 224, 255.429 )
+scale = Vector2( 0.285714, 0.285714 )
+texture = ExtResource( 4 )
+
+[node name="wand" type="Sprite" parent="MarginC/titlepart1"]
+position = Vector2( 430, 252 )
+texture = ExtResource( 5 )
+
+[node name="rest" type="VBoxContainer" parent="MarginC"]
+margin_right = 620.0
+margin_bottom = 307.0
+
+[node name="butReturn" type="Sprite" parent="MarginC/rest"]
+position = Vector2( -44.4267, -27.4832 )
+
+[node name="ReturnButton" parent="MarginC/rest/butReturn" instance=ExtResource( 6 )]
+margin_left = 9.0
+margin_top = -1.0
+margin_right = 97.0
+margin_bottom = 70.0
+custom_styles/focus = SubResource( 3 )
+[connection signal="pressed" from="MarginC/rest/butReturn/ReturnButton" to="." method="_on_ReturnButton_pressed"]

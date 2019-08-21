@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://titlescreen/ReturnButton.tscn" type="PackedScene" id=1]
+
+[node name="ReturnButton" index="0" instance=ExtResource( 1 )]
+margin_left = 703.155
+margin_top = 78.947
+margin_right = 793.155
+margin_bottom = 155.947
+rect_rotation = 180.0
+

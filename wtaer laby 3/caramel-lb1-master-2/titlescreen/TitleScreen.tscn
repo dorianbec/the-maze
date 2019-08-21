@@ -1,0 +1,274 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://titlescreen/TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://titlescreen/groupEtoiles.gd" type="Script" id=2]
+[ext_resource path="res://titlescreen/etoilePrez.tscn" type="PackedScene" id=3]
+[ext_resource path="res://titlescreen/etoilePrez.gd" type="Script" id=4]
+[ext_resource path="res://fonts/LuckiestGuy.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://titlescreen/play.tscn" type="PackedScene" id=6]
+[ext_resource path="res://titlescreen/rules.tscn" type="PackedScene" id=7]
+[ext_resource path="res://titlescreen/credits.tscn" type="PackedScene" id=8]
+[ext_resource path="res://fonts/Gumela.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://titlescreen/drag4.png" type="Texture" id=10]
+[ext_resource path="res://titlescreen/audio1whv1.png" type="Texture" id=11]
+[ext_resource path="res://titlescreen/sound1.gd" type="Script" id=12]
+[ext_resource path="res://titlescreen/fit-to-width-256.png" type="Texture" id=13]
+[ext_resource path="res://titlescreen/exit_white.png" type="Texture" id=14]
+[ext_resource path="res://areas/fadeIn.tscn" type="PackedScene" id=15]
+[ext_resource path="res://music/musicMenu.tscn" type="PackedScene" id=16]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+extra_spacing_bottom = 5
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BGcolor" type="ColorRect" parent="."]
+modulate = Color( 0.0156863, 0.176471, 0.454902, 1 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="groupEtoiles" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 243.592, 136.234 )
+script = ExtResource( 2 )
+
+[node name="etoilePrez3" parent="groupEtoiles" instance=ExtResource( 3 )]
+position = Vector2( 79.7239, 36.9324 )
+
+[node name="etoilePrez4" parent="groupEtoiles" instance=ExtResource( 3 )]
+position = Vector2( 149.061, -20.3464 )
+
+[node name="etoilePrez" parent="groupEtoiles" instance=ExtResource( 3 )]
+position = Vector2( 34.3189, 53.1917 )
+rotation = 2.85824
+script = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="groupEtoiles/etoilePrez"]
+
+[node name="etoilePrez2" parent="groupEtoiles" instance=ExtResource( 3 )]
+position = Vector2( 69.6539, -13.7226 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_left = 39.0
+margin_top = 35.0
+margin_right = 653.0
+margin_bottom = 361.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="titleCt" type="VBoxContainer" parent="Menu"]
+margin_right = 614.0
+margin_bottom = 66.0
+alignment = 1
+
+[node name="Title" type="Label" parent="Menu/titleCt"]
+margin_right = 614.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0.866667, 0.0627451, 0.172549, 0.670588 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 5
+text = "THE MAZE 3"
+align = 1
+uppercase = true
+
+[node name="otherParts" type="HBoxContainer" parent="Menu"]
+margin_top = 70.0
+margin_right = 614.0
+margin_bottom = 326.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ButtonsList" type="HBoxContainer" parent="Menu/otherParts"]
+margin_right = 305.0
+margin_bottom = 256.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ls" type="VBoxContainer" parent="Menu/otherParts/ButtonsList"]
+margin_right = 305.0
+margin_bottom = 256.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="Menu/otherParts/ButtonsList/ls"]
+margin_right = 305.0
+margin_bottom = 14.0
+
+[node name="play" parent="Menu/otherParts/ButtonsList/ls" instance=ExtResource( 6 )]
+margin_top = 18.0
+margin_right = 305.0
+margin_bottom = 66.0
+size_flags_horizontal = 3
+custom_styles/focus = SubResource( 2 )
+script = null
+
+[node name="rules" parent="Menu/otherParts/ButtonsList/ls" instance=ExtResource( 7 )]
+margin_top = 70.0
+margin_right = 305.0
+margin_bottom = 118.0
+size_flags_horizontal = 3
+custom_styles/focus = SubResource( 3 )
+script = null
+
+[node name="credits" parent="Menu/otherParts/ButtonsList/ls" instance=ExtResource( 8 )]
+margin_top = 122.0
+margin_right = 305.0
+margin_bottom = 170.0
+size_flags_horizontal = 3
+custom_styles/focus = SubResource( 4 )
+script = null
+
+[node name="version" type="Label" parent="Menu/otherParts/ButtonsList/ls"]
+margin_top = 174.0
+margin_right = 305.0
+margin_bottom = 255.0
+custom_fonts/font = SubResource( 5 )
+text = "
+CARAMEL PUBLISHING
+2019 v.1.0"
+
+[node name="Vide" type="HBoxContainer" parent="Menu/otherParts"]
+visible = false
+margin_left = 206.0
+margin_right = 408.0
+margin_bottom = 263.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="secondzone" type="HBoxContainer" parent="Menu/otherParts"]
+margin_left = 309.0
+margin_right = 614.0
+margin_bottom = 256.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="mage" type="Sprite" parent="Menu/otherParts/secondzone"]
+position = Vector2( 51.089, 140.199 )
+scale = Vector2( 0.567338, 0.561164 )
+texture = ExtResource( 10 )
+flip_h = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="shadow" type="Sprite" parent="Menu/otherParts/secondzone/mage"]
+self_modulate = Color( 0, 0, 0, 0.239216 )
+show_behind_parent = true
+position = Vector2( 6.48396, 14.1833 )
+texture = ExtResource( 10 )
+offset = Vector2( 2, 4 )
+flip_h = true
+
+[node name="sound1" type="Sprite" parent="Menu/otherParts/secondzone"]
+modulate = Color( 0.976471, 0.976471, 0.976471, 1 )
+position = Vector2( 265.408, 107.984 )
+scale = Vector2( 0.466979, 0.491507 )
+texture = ExtResource( 11 )
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Buttonsound1" type="Button" parent="Menu/otherParts/secondzone/sound1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -64.0
+margin_top = -64.0
+margin_right = -64.0
+margin_bottom = -64.0
+custom_styles/focus = SubResource( 6 )
+flat = true
+
+[node name="fullscreen1" type="Sprite" parent="Menu/otherParts/secondzone"]
+visible = false
+position = Vector2( 264.714, 38.5462 )
+scale = Vector2( 0.200467, 0.200467 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Buttonfull1" type="Button" parent="Menu/otherParts/secondzone/fullscreen1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = -128.0
+margin_right = -128.0
+margin_bottom = -128.0
+custom_styles/focus = SubResource( 7 )
+flat = true
+
+[node name="exit" type="Sprite" parent="Menu/otherParts/secondzone"]
+position = Vector2( 263.672, 185.612 )
+scale = Vector2( 0.55, 0.6 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ButtonExit" type="Button" parent="Menu/otherParts/secondzone/exit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -66.9473
+margin_top = -64.842
+margin_right = -66.9473
+margin_bottom = -64.842
+custom_styles/focus = SubResource( 8 )
+flat = true
+
+[node name="fadeIn" parent="." instance=ExtResource( 15 )]
+visible = false
+
+[node name="musicMenu" parent="." instance=ExtResource( 16 )]
+
+[node name="ConfirmClose" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="ConfirmClose"]
+margin_left = 257.579
+margin_top = 252.684
+margin_right = 457.579
+margin_bottom = 322.684
+window_title = ""
+dialog_text = "         Leave the game?"
+dialog_hide_on_ok = false
+[connection signal="pressed" from="Menu/otherParts/ButtonsList/ls/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Menu/otherParts/ButtonsList/ls/rules" to="." method="_on_rules_pressed"]
+[connection signal="pressed" from="Menu/otherParts/ButtonsList/ls/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Menu/otherParts/secondzone/sound1/Buttonsound1" to="Menu/otherParts/secondzone/sound1" method="_on_Buttonsound1_pressed"]
+[connection signal="pressed" from="Menu/otherParts/secondzone/sound1/Buttonsound1" to="." method="_on_Buttonsound1_pressed"]
+[connection signal="pressed" from="Menu/otherParts/secondzone/fullscreen1/Buttonfull1" to="." method="_on_Buttonfull1_pressed"]
+[connection signal="pressed" from="Menu/otherParts/secondzone/exit/ButtonExit" to="." method="_on_ButtonExit_pressed"]
+[connection signal="fadeIn_finished" from="fadeIn" to="." method="_on_fadeIn_fadeIn_finished"]
+[connection signal="confirmed" from="ConfirmClose/ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
